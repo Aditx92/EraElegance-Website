@@ -20,6 +20,15 @@ html, body{
     background-color: #fff;
 }
 
+.bounding{
+    width: fit-content;
+    overflow: hidden;
+}
+
+.bounding .boundingelem{
+    transform: translateY(100%);
+}
+
 #main{
     width: 100%;
     background-color: #000;
@@ -51,6 +60,7 @@ html, body{
 #heading{
     margin-top: 90px;
 }
+
 #heading h1{
     margin-left: 30px;
     opacity: .6;
@@ -65,16 +75,22 @@ html, body{
 }
 
 .blocktext{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     width: fit-content;
 }
 
 .blocktext h5{
     text-transform: uppercase;
     font-size: 15px;
-    text-align: right;
+    text-align: right !important;
 }
 
 #smallheadings{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     margin-top: 100px;
     padding-right: 50px;
 }
