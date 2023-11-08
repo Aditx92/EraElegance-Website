@@ -1,10 +1,11 @@
+var timeout;
+
 const scroll = new LocomotiveScroll({
     el: document.querySelector('#main'),
     smooth: true
 });
 
 function circlesqueeze(){
-    var timeout;
 
     var xscale = 1;
     var yscale = 1;
@@ -15,8 +16,8 @@ function circlesqueeze(){
     window.addEventListener("mousemove", function (dets) {
         clearTimeout(timeout);
 
-        xscale = gsap.utils.clamp(.8, 1.2, dets.clientX - xprev);
-        yscale = gsap.utils.clamp(.8, 1.2, dets.clientY - yprev);
+        xscale = gsap.utils.clamp(0.8, 1.2, dets.clientX - xprev);
+        yscale = gsap.utils.clamp(0.8, 1.2, dets.clientY - yprev);
         
         xprev = dets.clientX;
         yprev = dets.clientY;
@@ -75,7 +76,7 @@ document.querySelectorAll(".elem").forEach(function (elem) {
 
     elem.addEventListener("mouseleave", function (dets) {
         gsap.to(elem.querySelector("img"),{
-            opacity: 1,
+            opacity: 0,
             ease: Power3,
             duration: 0.5,
         });
@@ -87,7 +88,7 @@ document.querySelectorAll(".elem").forEach(function (elem) {
         diffrot = dets.clientX - rotate;
         rotate = dets.clientX;
 
-        gsap.to(elem.querySelector("img"),{
+        gsap.to(elem.querySelector("img"), {
             opacity: 1,
             ease: Power3,
             top: diff,
